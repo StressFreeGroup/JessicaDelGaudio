@@ -1,0 +1,87 @@
+/* =====================================================================
+   GLOBAL STYLES
+   ===================================================================== */
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--ink);
+  background: var(--cream);
+  font-weight: 400;
+  font-feature-settings: "ss01", "cv11";
+}
+
+/* Editorial display headings — Newsreader, never italic */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--sage-900);
+  font-weight: 500;
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+  font-style: normal;
+}
+
+h1 { font-size: clamp(var(--text-3xl), 6vw, var(--text-5xl)); font-weight: 400; }
+h2 { font-size: clamp(var(--text-2xl), 4.5vw, var(--text-4xl)); font-weight: 400; }
+h3 { font-size: clamp(var(--text-xl), 3vw, var(--text-2xl)); font-weight: 500; }
+h4 { font-size: var(--text-lg); font-weight: 500; }
+
+/* Eyebrow labels */
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--terracotta-600);
+  margin-bottom: var(--space-4);
+  display: inline-block;
+}
+
+/* Paragraph defaults */
+p { color: var(--ink-soft); }
+p.lead {
+  font-size: var(--text-md);
+  color: var(--ink);
+  line-height: var(--leading-normal);
+}
+
+/* Container utility */
+.container {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  width: 100%;
+}
+.container-narrow {
+  max-width: var(--container-narrow);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Section spacing */
+section { padding-block: clamp(var(--space-7), 10vw, var(--space-10)); }
+
+/* HR — used as section dividers, not the banned "thin line accent on cards" */
+hr.divider {
+  border: none;
+  border-top: 1px solid var(--border-soft);
+  margin: 0;
+}
+hr.divider-strong {
+  border: none;
+  border-top: 1px solid var(--ink);
+  opacity: 0.85;
+  margin: 0;
+}
+
+/* Reduce-motion respect */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

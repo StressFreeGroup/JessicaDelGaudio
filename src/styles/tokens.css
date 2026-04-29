@@ -1,0 +1,98 @@
+/* =====================================================================
+   HUDSON SAGE — Design Tokens
+   Jessica Del Gaudio, LMHC
+   ===================================================================== */
+
+:root {
+  /* ─────  COLOR  ───── */
+  /* Surfaces */
+  --cream:           #F5F1EA;   /* primary background — warm cream */
+  --cream-deep:      #EDE6D8;   /* alternating section bg */
+  --clay-200:        #E8DCC8;   /* subtle support panels */
+  --white:           #FFFFFF;
+
+  /* Sage — primary brand */
+  --sage-900:        #2A3D32;   /* deepest, used very sparingly */
+  --sage-700:        #3D5446;   /* PRIMARY brand color */
+  --sage-500:        #6B8472;   /* mid-tone */
+  --sage-300:        #A4B5A8;   /* lighter accent */
+  --sage-200:        #C8D4CB;   /* tint */
+  --sage-100:        #E0E7E2;   /* faintest tint */
+
+  /* Terracotta — accent */
+  --terracotta-700:  #A35A40;
+  --terracotta-600:  #B5694D;   /* CTA hover */
+  --terracotta-500:  #C97A5C;   /* CTA / accent */
+  --terracotta-300:  #E0A48E;
+  --terracotta-200:  #E9C9BD;   /* light accent panel */
+
+  /* Ink — text (warm charcoal, never pure black per standing rule) */
+  --ink:             #2A2A28;
+  --ink-soft:        #524F47;
+  --ink-mute:        #7A7569;
+
+  /* Functional */
+  --border-soft:     rgba(42, 42, 40, 0.10);
+  --border-medium:   rgba(42, 42, 40, 0.18);
+  --shadow-sm:       0 1px 3px rgba(42, 42, 40, 0.06), 0 1px 2px rgba(42, 42, 40, 0.04);
+  --shadow-md:       0 4px 12px rgba(42, 42, 40, 0.08), 0 2px 4px rgba(42, 42, 40, 0.04);
+  --shadow-lg:       0 12px 32px rgba(42, 42, 40, 0.10), 0 4px 8px rgba(42, 42, 40, 0.06);
+
+  /* ─────  TYPOGRAPHY  ───── */
+  --font-display: 'Newsreader', 'Iowan Old Style', Georgia, serif;
+  --font-body:    'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Scale — body floor 16px (12pt) per standing rule */
+  --text-xs:    13px;   /* small UI only — never below */
+  --text-sm:    15px;
+  --text-base:  17px;   /* default body */
+  --text-md:    19px;   /* lead paragraphs */
+  --text-lg:    22px;
+  --text-xl:    28px;
+  --text-2xl:   36px;
+  --text-3xl:   48px;
+  --text-4xl:   64px;
+  --text-5xl:   84px;
+  --text-6xl:   108px;  /* editorial display */
+
+  --leading-tight:  1.1;
+  --leading-snug:   1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.7;
+
+  --tracking-tight:  -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide:   0.08em;
+  --tracking-wider:  0.18em;
+
+  /* ─────  SPACING  ───── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+  --space-9:  96px;
+  --space-10: 128px;
+  --space-11: 160px;
+
+  /* ─────  LAYOUT  ───── */
+  --container:        1280px;
+  --container-narrow: 920px;
+  --container-text:   680px;
+  --gutter:           clamp(20px, 4vw, 48px);
+
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --radius-lg:  20px;
+  --radius-xl:  32px;
+
+  /* ─────  MOTION  ───── */
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast:    200ms;
+  --dur-base:    320ms;
+  --dur-slow:    500ms;
+}

@@ -1,0 +1,73 @@
+.section {
+  background: var(--cream);
+  position: relative;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(40px, 6vw, 96px);
+  align-items: start;
+}
+
+.intro { position: sticky; top: 110px; }
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4.5vw, 56px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--sage-900);
+  margin-top: var(--space-2);
+}
+
+.body { font-size: 17px; line-height: 1.7; }
+.body p { margin-bottom: var(--space-5); color: var(--ink); max-width: 60ch; }
+.body p:last-of-type { margin-bottom: var(--space-6); }
+
+.lead {
+  font-size: 22px !important;
+  line-height: 1.5 !important;
+  color: var(--sage-900) !important;
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+  margin-top: var(--space-6);
+}
+
+.creds {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: var(--space-6);
+  padding: 20px 24px;
+  background: var(--cream-deep);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 60ch;
+}
+.credLine {
+  display: block;
+  color: var(--ink);
+  font-weight: 500;
+}
+.credLine:first-child {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--sage-900);
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 880px) {
+  .grid { grid-template-columns: 1fr; gap: var(--space-6); }
+  .intro { position: static; }
+  .actions { flex-direction: column; align-items: flex-start; gap: var(--space-4); }
+}

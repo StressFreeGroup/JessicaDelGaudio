@@ -1,0 +1,156 @@
+.hero {
+  position: relative;
+  padding-top: clamp(60px, 9vw, 110px);
+  padding-bottom: clamp(80px, 11vw, 140px);
+  overflow: hidden;
+}
+
+.bgDecor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.bgArc {
+  position: absolute;
+  top: -300px;
+  right: -300px;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, var(--sage-100) 0%, transparent 70%);
+  opacity: 0.7;
+}
+
+.grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: clamp(40px, 5vw, 80px);
+  align-items: center;
+}
+
+.text { max-width: 640px; }
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--terracotta-600);
+  margin-bottom: var(--space-5);
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--terracotta-300);
+}
+
+.title {
+  font-size: clamp(44px, 6.5vw, 88px);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  color: var(--sage-900);
+  font-family: var(--font-display);
+}
+.titleAccent {
+  color: var(--sage-700);
+  /* Subtle highlight: underline-like brushstroke via gradient bg */
+  background: linear-gradient(180deg, transparent 70%, var(--terracotta-200) 70%, var(--terracotta-200) 92%, transparent 92%);
+  padding: 0 4px;
+}
+
+.lead {
+  margin-top: var(--space-5);
+  font-size: clamp(17px, 1.4vw, 19px);
+  line-height: 1.65;
+  color: var(--ink);
+  max-width: 56ch;
+}
+
+.actions {
+  margin-top: var(--space-6);
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+}
+
+.proof {
+  margin-top: var(--space-6);
+}
+
+/* Visual — portrait + metadata */
+.visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.portraitFrame {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+}
+
+.portraitImage {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 220px 220px 16px 16px;  /* arch top — modern editorial */
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background: var(--sage-200);
+}
+.portraitImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
+}
+.portraitImage::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(42, 61, 50, 0.18) 100%);
+  pointer-events: none;
+}
+
+.portraitMeta {
+  position: absolute;
+  bottom: -28px;
+  left: -28px;
+  background: var(--white);
+  padding: 14px 22px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+.metaLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--terracotta-600);
+}
+.metaValue {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--sage-900);
+  margin-top: 4px;
+}
+
+@media (max-width: 920px) {
+  .grid { grid-template-columns: 1fr; gap: var(--space-8); }
+  .visual { max-width: 380px; margin: 0 auto; }
+  .title { font-size: clamp(40px, 9vw, 64px); }
+}
+@media (max-width: 540px) {
+  .actions { flex-direction: column; align-items: stretch; }
+  .actions > * { width: 100%; justify-content: center; }
+  .portraitMeta { left: -8px; bottom: -20px; padding: 12px 16px; }
+}

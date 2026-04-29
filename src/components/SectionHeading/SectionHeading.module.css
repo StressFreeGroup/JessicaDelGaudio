@@ -1,0 +1,15 @@
+.head {
+  margin-bottom: var(--space-7);
+  max-width: 720px;
+}
+.left   { margin-inline-start: 0; text-align: left; }
+.center { margin-inline: auto; text-align: center; }
+
+.title {
+  margin-top: var(--space-2);
+}
+.lead {
+  margin-top: var(--space-4);
+  max-width: 60ch;
+}
+.center .lead { margin-inline: auto; }
