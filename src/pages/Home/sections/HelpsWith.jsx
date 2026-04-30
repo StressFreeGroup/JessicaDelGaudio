@@ -3,34 +3,34 @@ import s from './HelpsWith.module.css';
 
 const specialties = [
   {
+    n: '01',
     title: 'Anxiety & Stress',
-    body: 'From persistent worry to panic, we build skills to interrupt the spiral and stay grounded in the present.',
-    bg: 'sage'
+    body: 'From persistent worry and racing thoughts to panic, we build practical skills to interrupt the spiral and stay grounded in the present.'
   },
   {
+    n: '02',
     title: 'Depression & Mood',
-    body: 'Working through low energy, hopelessness, and the loss of pleasure &mdash; with both warmth and structure.',
-    bg: 'cream'
+    body: 'Working through low energy, hopelessness, and the loss of pleasure in things that used to matter \u2014 with both warmth and structure.'
   },
   {
+    n: '03',
     title: 'Grief & Loss',
-    body: 'Holding space for what you\u2019ve lost while finding a way to carry it that lets life keep moving.',
-    bg: 'terracotta'
+    body: 'Holding space for what you\u2019ve lost, while finding a way to carry it that lets life keep moving forward at your own pace.'
   },
   {
+    n: '04',
     title: 'Relationship Strain',
-    body: 'Family conflict, intimacy, communication, and the patterns that show up across every connection.',
-    bg: 'cream'
+    body: 'Family conflict, intimacy, communication breakdowns, and the patterns that keep showing up across every connection in your life.'
   },
   {
+    n: '05',
     title: 'Addiction Recovery',
-    body: 'Compassionate, non-judgmental support for substance use, process addictions, and the road to stability.',
-    bg: 'sage'
+    body: 'Compassionate, non-judgmental support for substance use and process addictions \u2014 meeting you wherever you are on the road to stability.'
   },
   {
+    n: '06',
     title: 'Trauma & PTSD',
-    body: 'Trauma-informed care that prioritizes safety, pacing, and your own sense of what\u2019s ready.',
-    bg: 'terracotta'
+    body: 'Trauma-informed care that prioritizes safety, pacing, and your own sense of what\u2019s ready to be looked at and what isn\u2019t.'
   }
 ];
 
@@ -39,25 +39,25 @@ export default function HelpsWith() {
     <section className={s.section} aria-labelledby="helps-title">
       <div className="container">
         <header className={s.head}>
-          <span className="eyebrow">What I help with</span>
+          <span className={s.eyebrow}>What I help with</span>
           <h2 id="helps-title" className={s.title}>
-            Six places people most often<br />arrive at my door.
+            Six places people most often arrive at my door.
           </h2>
           <p className={s.lead}>
             Most clients reach me at a transition &mdash; something has shifted, something hurts, or something needs
-            to change. Below are the territories I work in most often. The full list of specialties lives on the
-            services page.
+            to change. These are the territories I work in most often.
           </p>
         </header>
 
-        <div className={s.grid}>
+        <ul className={s.list}>
           {specialties.map(item => (
-            <article key={item.title} className={`${s.block} ${s[item.bg]}`}>
+            <li key={item.n} className={s.item}>
+              <span className={s.num} aria-hidden="true">{item.n}</span>
               <h3 className={s.itemTitle}>{item.title}</h3>
-              <p className={s.itemBody} dangerouslySetInnerHTML={{ __html: item.body }} />
-            </article>
+              <p className={s.itemBody}>{item.body}</p>
+            </li>
           ))}
-        </div>
+        </ul>
 
         <div className={s.cta}>
           <Link to="/services" className={s.ctaLink}>

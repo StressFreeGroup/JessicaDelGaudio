@@ -1,69 +1,98 @@
-.section { background: var(--cream-deep); }
+.section {
+  background: var(--cream-deep);
+  padding-block: clamp(64px, 9vw, 120px);
+}
 
 .head {
+  max-width: var(--container-narrow);
+  margin: 0 auto var(--space-8);
   text-align: center;
-  margin-bottom: var(--space-7);
-}
-.title {
-  font-family: var(--font-display);
-  font-size: clamp(34px, 4.5vw, 52px);
-  font-weight: 400;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: var(--sage-900);
-  margin-top: var(--space-2);
 }
 
-.list {
+.eyebrow {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--terracotta-600);
+  margin-bottom: var(--space-3);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 5vw, 56px);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--sage-900);
+}
+
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-6);
+  gap: clamp(28px, 4vw, 56px);
   position: relative;
+  max-width: var(--container);
+  margin-inline: auto;
 }
+
 .step {
   position: relative;
+  padding: 12px 0;
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
-  padding: 24px 0;
+}
+
+/* Subtle horizontal connector between steps on desktop */
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 30px;
+  right: calc(-1 * clamp(28px, 4vw, 56px) / 2 - 8px);
+  width: clamp(20px, 3vw, 40px);
+  height: 1px;
+  background: var(--sage-300);
 }
 
 .num {
   font-family: var(--font-display);
-  font-size: 64px;
+  font-size: 56px;
   font-weight: 400;
-  letter-spacing: -0.04em;
   color: var(--terracotta-500);
+  letter-spacing: -0.02em;
   line-height: 1;
+  margin-bottom: var(--space-5);
+  display: block;
 }
 
 .stepTitle {
   font-family: var(--font-display);
-  font-size: 24px;
+  font-size: clamp(22px, 2.4vw, 28px);
   font-weight: 500;
-  letter-spacing: -0.01em;
   color: var(--sage-900);
-}
-.stepText {
-  font-size: 15px;
-  line-height: 1.65;
-  color: var(--ink-soft);
-  max-width: 38ch;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  margin: 0 0 var(--space-3);
+  text-wrap: balance;
 }
 
-.connector {
-  position: absolute;
-  top: 50px;
-  right: -24px;
-  width: 32px;
-  border: none;
-  border-top: 1px dashed var(--border-medium);
+.stepBody {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink);
   margin: 0;
+  max-width: 36ch;
 }
 
 @media (max-width: 880px) {
-  .list { grid-template-columns: 1fr; gap: var(--space-5); }
-  .connector { display: none; }
-  .step { border-bottom: 1px solid var(--border-soft); padding-bottom: var(--space-5); }
-  .step:last-child { border-bottom: none; }
+  .grid { grid-template-columns: 1fr; gap: var(--space-6); }
+  .step { padding: var(--space-5) 0; border-top: 1px solid var(--border-soft); }
+  .step:first-child { border-top: none; padding-top: 0; }
+  .step:not(:last-child)::after { display: none; }
+  .num { font-size: 44px; margin-bottom: var(--space-3); }
 }

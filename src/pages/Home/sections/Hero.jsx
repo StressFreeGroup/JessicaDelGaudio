@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import Button from '../../../components/Button/Button.jsx';
 import VerifiedBadge from '../../../components/VerifiedBadge/VerifiedBadge.jsx';
 import { booking } from '../../../config/booking.js';
@@ -14,7 +13,7 @@ export default function Hero() {
       <div className="container">
         <div className={s.grid}>
           <div className={s.text}>
-            <span className={s.eyebrow}>Jessica Del Gaudio, LMHC · Newburgh, NY</span>
+            <span className={s.eyebrow}>Jessica Del Gaudio, LMHC &middot; Newburgh, NY</span>
 
             <h1 id="hero-title" className={s.title}>
               Therapy that meets you<br />
@@ -28,10 +27,12 @@ export default function Hero() {
             </p>
 
             <div className={s.actions}>
-              <Button href={booking.freeConsult} target="_blank" rel="noopener noreferrer" variant="accent" size="lg">
-                Book a free 15-min consultation
+              <Button href="#schedule" variant="accent" size="lg">
+                Book a session
               </Button>
-              <Button href="#book" variant="ghost" size="md">See all booking options</Button>
+              <Button href={booking.freeConsult} target="_blank" rel="noopener noreferrer" variant="ghost" size="md">
+                Free 15-min consult
+              </Button>
             </div>
 
             <div className={s.proof}>
@@ -50,8 +51,17 @@ export default function Hero() {
                 />
               </div>
               <div className={s.portraitMeta}>
-                <span className={s.metaLabel}>Now accepting</span>
-                <span className={s.metaValue}>New clients · NY only</span>
+                <span className={s.metaLabel}>Now Accepting New Clients</span>
+                <ul className={s.metaList}>
+                  <li>
+                    <span className={s.metaDot} aria-hidden="true" />
+                    <span><strong>In-Person</strong> &mdash; Newburgh, NY</span>
+                  </li>
+                  <li>
+                    <span className={s.metaDot} aria-hidden="true" />
+                    <span><strong>Virtual</strong> &mdash; Phone &amp; Video</span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>

@@ -1,44 +1,65 @@
 .section {
   background: var(--cream);
+  padding-block: clamp(64px, 9vw, 120px);
   position: relative;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: clamp(40px, 6vw, 96px);
-  align-items: start;
+/* HEAD — eyebrow on row 1, title on row 2.
+   Title scales fluidly from mobile→desktop using clamp() with viewport units.
+   text-wrap: balance keeps the line breaks aesthetic across all sizes. */
+.head {
+  max-width: var(--container-narrow);
+  margin: 0 auto var(--space-8);
+  text-align: center;
 }
 
-.intro { position: sticky; top: 110px; }
+.eyebrow {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--terracotta-600);
+  margin-bottom: var(--space-3);
+  line-height: 1.2;
+}
 
 .title {
   font-family: var(--font-display);
-  font-size: clamp(36px, 4.5vw, 56px);
+  font-size: clamp(28px, 5vw, 56px);
   font-weight: 400;
-  line-height: 1.05;
+  line-height: 1.1;
   letter-spacing: -0.02em;
   color: var(--sage-900);
-  margin-top: var(--space-2);
+  text-wrap: balance;
+  max-width: 22ch;
+  margin: 0 auto;
 }
 
-.body { font-size: 17px; line-height: 1.7; }
-.body p { margin-bottom: var(--space-5); color: var(--ink); max-width: 60ch; }
-.body p:last-of-type { margin-bottom: var(--space-6); }
+/* BODY — single column, centered, comfortable read width */
+.body {
+  max-width: var(--container-text);
+  margin: 0 auto;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+
+.body p {
+  margin-bottom: var(--space-5);
+}
+.body p:last-of-type {
+  margin-bottom: var(--space-6);
+}
 
 .lead {
-  font-size: 22px !important;
-  line-height: 1.5 !important;
-  color: var(--sage-900) !important;
   font-family: var(--font-display);
+  font-size: clamp(20px, 2vw, 24px) !important;
+  line-height: 1.45 !important;
+  color: var(--sage-900) !important;
   font-weight: 400;
-}
-
-.actions {
-  display: flex;
-  gap: var(--space-5);
-  flex-wrap: wrap;
-  margin-top: var(--space-6);
+  text-wrap: balance;
 }
 
 .creds {
@@ -46,12 +67,13 @@
   flex-direction: column;
   gap: 6px;
   margin-top: var(--space-6);
-  padding: 20px 24px;
+  margin-bottom: var(--space-6);
+  padding: 22px 26px;
   background: var(--cream-deep);
   border-radius: var(--radius-md);
   font-size: 14px;
   line-height: 1.5;
-  max-width: 60ch;
+  border-left: 3px solid var(--sage-300);
 }
 .credLine {
   display: block;
@@ -66,8 +88,17 @@
   letter-spacing: -0.01em;
 }
 
-@media (max-width: 880px) {
-  .grid { grid-template-columns: 1fr; gap: var(--space-6); }
-  .intro { position: static; }
-  .actions { flex-direction: column; align-items: flex-start; gap: var(--space-4); }
+.actions {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-top: var(--space-6);
+  justify-content: flex-start;
+}
+
+@media (max-width: 600px) {
+  .head { text-align: left; }
+  .title { margin-left: 0; }
+  .actions { flex-direction: column; align-items: stretch; }
+  .actions > * { width: 100%; justify-content: center; }
 }
