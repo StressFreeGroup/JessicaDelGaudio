@@ -82,23 +82,23 @@ export default function Schedule() {
         <header className={s.head}>
           <span className={s.eyebrow}>Schedule a session</span>
           <h2 id="schedule-title" className={s.title}>
-            Two paths to begin. <span className={s.titleAccent}>Pick yours.</span>
+            Choose a plan, <span className={s.titleAccent}>then pick your time.</span>
           </h2>
           <p className={s.lead}>
-            For paid sessions, choose a plan below and check out securely through Stripe \u2014
-            after payment, you&rsquo;re sent straight to my calendar to pick a time.
-            Or start with a free 15-minute consultation: no payment needed, just pick a time.
+            Pick the plan that fits below. Paid plans run through Stripe checkout first, then
+            return you to the calendar to lock your time. Or skip pricing and book a free 15-minute
+            consultation directly &mdash; the calendar handles both.
           </p>
         </header>
 
-        {/* PATH A — Paid plans (Pricing tiers, Weekly Plan as MOST POPULAR hero) */}
+        {/* Paid plans (Pricing tiers, Weekly Plan as MOST POPULAR hero) */}
         <div className={s.pathHead}>
           <span className={s.pathLabel}>
-            <span className={s.pathLetter}>A</span>
-            Paid sessions
+            <span className={s.pathLetter}>1</span>
+            Choose a plan
           </span>
           <p className={s.pathHint}>
-            Click a tier &rarr; secure Stripe checkout &rarr; back to the calendar to lock your time.
+            Click a tier below for paid sessions, or skip to the calendar for a free consultation.
           </p>
         </div>
 
@@ -161,19 +161,20 @@ export default function Schedule() {
         {/* DIVIDER */}
         <div className={s.divider} aria-hidden="true">
           <span className={s.dividerLine} />
-          <span className={s.dividerText}>or</span>
+          <span className={s.dividerText}>then</span>
           <span className={s.dividerLine} />
         </div>
 
-        {/* PATH B — Free consultation calendar (clean typographic header, not a banner) */}
-        <div className={s.consultHead}>
-          <span className={s.consultHeadEyebrow}>Free 15-minute consultation</span>
-          <h3 className={s.consultHeadTitle}>
-            Or start with a brief no-obligation call.
+        {/* CALENDAR — the booking surface for ALL session types */}
+        <div className={s.calendarHead}>
+          <span className={s.calendarHeadEyebrow}>Book a session</span>
+          <h3 className={s.calendarHeadTitle}>
+            Pick a time that works for you.
           </h3>
-          <p className={s.consultHeadSub}>
-            Pick a time below. No payment, no commitment &mdash; just a conversation about
-            what you&rsquo;re looking for and whether we&rsquo;re a good fit.
+          <p className={s.calendarHeadSub}>
+            Choose your session type below &mdash; free consultation or full session &mdash; then
+            pick an open time. Free consultations book directly. Paid sessions go through Stripe first;
+            after payment you&rsquo;re returned here to lock your time.
           </p>
         </div>
 
