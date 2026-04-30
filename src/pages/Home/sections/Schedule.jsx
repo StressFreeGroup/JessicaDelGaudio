@@ -165,16 +165,22 @@ export default function Schedule() {
           <span className={s.dividerLine} />
         </div>
 
-        {/* PATH B — Free consultation calendar */}
-        <div className={s.pathHead}>
-          <span className={s.pathLabel}>
-            <span className={s.pathLetter}>B</span>
-            Free 15-min consultation
-          </span>
-          <p className={s.pathHint}>
-            Not ready to commit? Pick a time below for a brief no-obligation call &mdash; we&rsquo;ll talk
-            about what you&rsquo;re looking for and whether we&rsquo;re a good fit.
-          </p>
+        {/* PATH B — Free consultation calendar (prominent CTA banner) */}
+        <div className={s.consultBanner}>
+          <div className={s.consultBannerLeft}>
+            <span className={s.consultBadge}>FREE</span>
+            <div>
+              <h3 className={s.consultTitle}>15-minute consultation</h3>
+              <p className={s.consultSubtitle}>
+                Not ready to commit? Book a brief no-obligation call &mdash; we&rsquo;ll talk
+                about what you&rsquo;re looking for and whether we&rsquo;re a good fit.
+              </p>
+            </div>
+          </div>
+          <div className={s.consultMeta}>
+            <span className={s.consultMetaTop}>No payment</span>
+            <span className={s.consultMetaBottom}>No commitment</span>
+          </div>
         </div>
 
         <div className={s.calendarWrap}>

@@ -1,7 +1,7 @@
 import Hero from './sections/Hero.jsx';
 import TrustStrip from '../../components/TrustStrip/TrustStrip.jsx';
 import Schedule from './sections/Schedule.jsx';
-import HelpsWith from './sections/HelpsWith.jsx';
+import Modalities from './sections/Modalities.jsx';
 import Approach from './sections/Approach.jsx';
 import HowItWorks from './sections/HowItWorks.jsx';
 import Reviews from './sections/Reviews.jsx';
@@ -14,7 +14,7 @@ export default function Home() {
       <Hero />
       <TrustStrip />
       <Schedule />
-      <HelpsWith />
+      <Modalities />
       <Approach />
       <HowItWorks />
       <Reviews />
