@@ -4,14 +4,18 @@ import { booking } from '../../../config/booking.js';
 import s from './Schedule.module.css';
 
 /**
- * Schedule section — the conversion fold.
+ * Schedule section — clearer two-path payment flow.
  *
- * Order intentional:
- *   1. Calendar widget at the top (the actual booking surface)
- *   2. Pricing tiers below — Weekly Plan is the visual hero (MOST POPULAR)
- *      flanked by On the Spot and Annual Plan as supporting tiers.
- *   3. Free Consult as a quiet single-line link below pricing
- *      (entry point, not the conversion goal).
+ * PATH A — paid sessions (pricing tiers first):
+ *   Choose tier → Stripe checkout → on success, Stripe redirects to
+ *   the matching Google Appointment Scheduling URL → pick time → done.
+ *
+ * PATH B — free 15-min consultation (calendar inline):
+ *   Pick a time directly on the calendar widget → Google scheduler → done.
+ *   No payment needed.
+ *
+ * The visual hierarchy now reflects that paid bookings flow through Stripe
+ * BEFORE the calendar, and free consults skip payment entirely.
  */
 
 const tiers = [
@@ -70,27 +74,32 @@ const tiers = [
 export default function Schedule() {
   return (
     <section className={s.section} id="schedule" aria-labelledby="schedule-title">
+      <div className={s.bgDecor} aria-hidden="true">
+        <div className={s.blob} />
+      </div>
+
       <div className="container">
         <header className={s.head}>
-          <span className={s.eyebrow}>Schedule</span>
+          <span className={s.eyebrow}>Schedule a session</span>
           <h2 id="schedule-title" className={s.title}>
-            Find a time that works for you.
+            Two paths to begin. <span className={s.titleAccent}>Pick yours.</span>
           </h2>
           <p className={s.lead}>
-            Pick an open slot below. After scheduling you&rsquo;ll receive a secure intake form and the
-            video link for our session. For paid plans, payment runs through Stripe before the appointment is locked.
+            For paid sessions, choose a plan below and check out securely through Stripe \u2014
+            after payment, you&rsquo;re sent straight to my calendar to pick a time.
+            Or start with a free 15-minute consultation: no payment needed, just pick a time.
           </p>
         </header>
 
-        {/* CALENDAR — visible first, the actual conversion surface */}
-        <div className={s.calendarWrap}>
-          <SchedulerEmbed />
-        </div>
-
-        {/* PRICING — Weekly Plan as visual hero */}
-        <div className={s.pricingHead}>
-          <span className={s.pricingEyebrow}>Choose a plan</span>
-          <h3 className={s.pricingTitle}>Three ways to begin. Same care, different cadence.</h3>
+        {/* PATH A — Paid plans (Pricing tiers, Weekly Plan as MOST POPULAR hero) */}
+        <div className={s.pathHead}>
+          <span className={s.pathLabel}>
+            <span className={s.pathLetter}>A</span>
+            Paid sessions
+          </span>
+          <p className={s.pathHint}>
+            Click a tier &rarr; secure Stripe checkout &rarr; back to the calendar to lock your time.
+          </p>
         </div>
 
         <div className={s.tiers}>
@@ -102,7 +111,7 @@ export default function Schedule() {
               {t.style === 'feature' && <span className={s.badge}>{t.eyebrow}</span>}
               {t.style !== 'feature' && <span className={s.tierEyebrow}>{t.eyebrow}</span>}
 
-              <h4 className={s.tierName}>{t.name}</h4>
+              <h3 className={s.tierName}>{t.name}</h3>
 
               <div className={s.priceLine}>
                 <span className={s.price}>{t.price}</span>
@@ -135,25 +144,47 @@ export default function Schedule() {
           ))}
         </div>
 
-        {/* Free consult — demoted to a quiet single-line link */}
-        <p className={s.consultLine}>
-          Not sure yet?{' '}
-          <a
-            href={booking.freeConsult}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={s.consultLink}
-          >
-            Start with a free 15-minute consultation
-          </a>
-          {' '}&mdash; no commitment, just a conversation.
-        </p>
+        {/* Payment flow explainer */}
+        <div className={s.flowExplainer}>
+          <span className={s.flowEyebrow}>How payment works</span>
+          <ol className={s.flowSteps}>
+            <li><strong>1.</strong> You choose a plan above and check out securely through Stripe.</li>
+            <li><strong>2.</strong> After payment, Stripe redirects you straight to my calendar.</li>
+            <li><strong>3.</strong> You pick a time, I&rsquo;m notified, the slot is yours.</li>
+          </ol>
+          <p className={s.flowNote}>
+            Subscriptions cancel anytime in writing before the next billing cycle. FSA and HSA cards
+            are accepted at checkout. I provide superbills on request for out-of-network reimbursement.
+          </p>
+        </div>
+
+        {/* DIVIDER */}
+        <div className={s.divider} aria-hidden="true">
+          <span className={s.dividerLine} />
+          <span className={s.dividerText}>or</span>
+          <span className={s.dividerLine} />
+        </div>
+
+        {/* PATH B — Free consultation calendar */}
+        <div className={s.pathHead}>
+          <span className={s.pathLabel}>
+            <span className={s.pathLetter}>B</span>
+            Free 15-min consultation
+          </span>
+          <p className={s.pathHint}>
+            Not ready to commit? Pick a time below for a brief no-obligation call &mdash; we&rsquo;ll talk
+            about what you&rsquo;re looking for and whether we&rsquo;re a good fit.
+          </p>
+        </div>
+
+        <div className={s.calendarWrap}>
+          <SchedulerEmbed />
+        </div>
 
         <p className={s.fineprint}>
-          Sessions are 60 minutes by secure video unless otherwise noted. Plans renew automatically and may
-          be cancelled in writing before the next billing date. Missed sessions without 24 hours&rsquo; notice
-          are not refunded. I&rsquo;ll provide a superbill on request for clients pursuing out-of-network
-          insurance reimbursement.
+          All sessions are 60 minutes by default \u2014 in-person at the Newburgh, NY office or by secure video
+          and phone for clients elsewhere in New York State. Missed sessions without 24 hours&rsquo; notice are
+          not refunded. Reschedule anytime through the link in your confirmation email.
         </p>
       </div>
     </section>

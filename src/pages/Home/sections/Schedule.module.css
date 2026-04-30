@@ -1,11 +1,32 @@
 .section {
+  position: relative;
   background: var(--cream);
-  padding-block: clamp(64px, 9vw, 120px);
+  padding-block: clamp(72px, 10vw, 130px);
+  overflow: hidden;
+}
+
+.bgDecor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.blob {
+  position: absolute;
+  top: 8%;
+  right: -300px;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, var(--terracotta-200) 0%, transparent 65%);
+  opacity: 0.35;
 }
 
 .head {
+  position: relative;
+  z-index: 1;
   max-width: var(--container-narrow);
-  margin: 0 auto var(--space-7);
+  margin: 0 auto var(--space-9);
   text-align: center;
 }
 
@@ -28,62 +49,78 @@
   letter-spacing: -0.02em;
   color: var(--sage-900);
   text-wrap: balance;
-  max-width: 22ch;
-  margin: 0 auto;
+}
+.titleAccent {
+  color: var(--sage-700);
+  background: linear-gradient(180deg, transparent 70%, var(--terracotta-200) 70%, var(--terracotta-200) 92%, transparent 92%);
+  padding: 0 6px;
 }
 
 .lead {
   margin-top: var(--space-5);
-  font-size: clamp(16px, 1.4vw, 19px);
+  font-size: clamp(15px, 1.4vw, 18px);
   line-height: 1.65;
   color: var(--ink-soft);
-  max-width: 60ch;
+  max-width: 64ch;
   margin-left: auto;
   margin-right: auto;
 }
 
-.calendarWrap {
+/* PATH HEAD — labels each path with a big letter */
+.pathHead {
+  position: relative;
+  z-index: 1;
   max-width: 920px;
-  margin: 0 auto var(--space-9);
+  margin: 0 auto var(--space-6);
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  flex-wrap: wrap;
 }
-
-/* Pricing section --------------------------------------------------------- */
-.pricingHead {
-  text-align: center;
-  margin-bottom: var(--space-7);
-}
-.pricingEyebrow {
-  display: block;
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--terracotta-600);
-  margin-bottom: var(--space-3);
-}
-.pricingTitle {
+.pathLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
   font-family: var(--font-display);
-  font-size: clamp(24px, 3vw, 36px);
-  font-weight: 400;
-  line-height: 1.15;
-  letter-spacing: -0.015em;
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 500;
   color: var(--sage-900);
-  text-wrap: balance;
-  max-width: 26ch;
-  margin: 0 auto;
+  letter-spacing: -0.015em;
+}
+.pathLetter {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--terracotta-500);
+  color: var(--cream);
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1;
+}
+.pathHint {
+  flex: 1;
+  min-width: 280px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 0;
 }
 
+/* PRICING TIERS */
 .tiers {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1fr 1.1fr 1fr;
   gap: var(--space-5);
   align-items: stretch;
   max-width: 1080px;
-  margin: 0 auto;
+  margin: 0 auto var(--space-7);
 }
 
-/* Plain tier (On the Spot, Annual) */
 .tier {
   position: relative;
   background: var(--white);
@@ -96,7 +133,7 @@
   transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
 }
 .plain:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-md);
 }
 
@@ -112,7 +149,7 @@
 
 .tierName {
   font-family: var(--font-display);
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 500;
   color: var(--sage-900);
   letter-spacing: -0.015em;
@@ -127,7 +164,7 @@
 }
 .price {
   font-family: var(--font-display);
-  font-size: 38px;
+  font-size: 42px;
   font-weight: 500;
   color: var(--sage-900);
   letter-spacing: -0.02em;
@@ -174,7 +211,7 @@
 
 .tierCta { margin-top: auto; }
 
-/* FEATURE TIER (Weekly Plan) — visual hero, dark sage block lifted higher */
+/* WEEKLY PLAN — visual hero (dark sage block lifted higher) */
 .feature {
   background: linear-gradient(165deg, var(--sage-700) 0%, var(--sage-900) 100%);
   color: var(--cream);
@@ -188,24 +225,12 @@
   transform: translateY(-16px) scale(1.025);
 }
 .feature .tierName,
-.feature .price {
-  color: var(--cream);
-}
-.feature .cadence {
-  color: var(--sage-200);
-}
-.feature .pitch {
-  color: var(--sage-100);
-}
-.feature .features {
-  border-top-color: rgba(255, 255, 255, 0.16);
-}
-.feature .featureItem {
-  color: var(--cream);
-}
-.feature .check {
-  color: var(--terracotta-300);
-}
+.feature .price { color: var(--cream); }
+.feature .cadence { color: var(--sage-200); }
+.feature .pitch { color: var(--sage-100); }
+.feature .features { border-top-color: rgba(255, 255, 255, 0.16); }
+.feature .featureItem { color: var(--cream); }
+.feature .check { color: var(--terracotta-300); }
 
 .badge {
   position: absolute;
@@ -214,7 +239,7 @@
   transform: translate(-50%, -50%);
   background: var(--terracotta-500);
   color: var(--cream);
-  padding: 6px 16px;
+  padding: 6px 18px;
   font-family: var(--font-body);
   font-size: 11px;
   font-weight: 700;
@@ -225,29 +250,93 @@
   box-shadow: 0 4px 10px rgba(165, 90, 64, 0.35);
 }
 
-/* Free consult — quiet line below pricing */
-.consultLine {
-  text-align: center;
-  margin: var(--space-7) auto 0;
-  max-width: 60ch;
-  font-size: 15px;
-  color: var(--ink-soft);
-  line-height: 1.6;
+/* PAYMENT FLOW EXPLAINER */
+.flowExplainer {
+  position: relative;
+  z-index: 1;
+  max-width: 920px;
+  margin: 0 auto;
+  background: var(--cream-deep);
+  border-radius: var(--radius-lg);
+  padding: clamp(24px, 3vw, 36px) clamp(28px, 4vw, 44px);
+  border-left: 4px solid var(--sage-700);
 }
-.consultLink {
+.flowEyebrow {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--terracotta-600);
+  margin-bottom: 12px;
+}
+.flowSteps {
+  list-style: none;
+  margin: 0 0 14px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+.flowSteps li {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.flowSteps strong {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
   color: var(--sage-700);
-  font-weight: 600;
-  border-bottom: 1px solid var(--sage-300);
-  padding-bottom: 1px;
-  transition: color var(--dur-fast), border-color var(--dur-fast);
+  margin-right: 6px;
+  letter-spacing: -0.015em;
 }
-.consultLink:hover {
-  color: var(--sage-900);
-  border-bottom-color: var(--sage-700);
+.flowNote {
+  margin: 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-soft);
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--ink-mute);
+}
+
+/* DIVIDER */
+.divider {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  max-width: 920px;
+  margin: var(--space-9) auto;
+}
+.dividerLine {
+  flex: 1;
+  height: 1px;
+  background: var(--border-medium);
+}
+.dividerText {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink-mute);
+  letter-spacing: 0.02em;
+}
+
+/* CALENDAR WRAPPER */
+.calendarWrap {
+  position: relative;
+  z-index: 1;
+  max-width: 920px;
+  margin: 0 auto;
 }
 
 .fineprint {
-  margin-top: var(--space-6);
+  position: relative;
+  z-index: 1;
+  margin-top: var(--space-7);
   padding-top: var(--space-5);
   border-top: 1px solid var(--border-soft);
   text-align: center;
@@ -271,4 +360,5 @@
     padding-top: 36px;
   }
   .feature:hover { transform: translateY(-2px); }
+  .flowSteps { grid-template-columns: 1fr; gap: var(--space-3); }
 }

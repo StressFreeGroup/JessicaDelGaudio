@@ -1,13 +1,30 @@
 .section {
-  background: var(--cream);
-  padding-block: clamp(64px, 9vw, 120px);
   position: relative;
+  background: var(--cream);
+  padding-block: clamp(72px, 10vw, 130px);
+  overflow: hidden;
 }
 
-/* HEAD — eyebrow on row 1, title on row 2.
-   Title scales fluidly from mobile→desktop using clamp() with viewport units.
-   text-wrap: balance keeps the line breaks aesthetic across all sizes. */
+.bgDecor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.blob {
+  position: absolute;
+  bottom: -200px;
+  left: -200px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, var(--sage-100) 0%, transparent 70%);
+  opacity: 0.6;
+}
+
 .head {
+  position: relative;
+  z-index: 1;
   max-width: var(--container-narrow);
   margin: 0 auto var(--space-8);
   text-align: center;
@@ -36,56 +53,42 @@
   max-width: 22ch;
   margin: 0 auto;
 }
+.titleAccent {
+  color: var(--sage-700);
+  background: linear-gradient(180deg, transparent 70%, var(--terracotta-200) 70%, var(--terracotta-200) 92%, transparent 92%);
+  padding: 0 6px;
+}
 
-/* BODY — single column, centered, comfortable read width */
-.body {
-  max-width: var(--container-text);
+/* ASYMMETRIC LAYOUT — body left (1.4fr), sidebar right (1fr) */
+.layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: start;
+  max-width: var(--container);
   margin: 0 auto;
+}
+
+.body {
   font-size: 17px;
   line-height: 1.7;
   color: var(--ink);
 }
-
 .body p {
   margin-bottom: var(--space-5);
 }
 .body p:last-of-type {
   margin-bottom: var(--space-6);
 }
-
 .lead {
   font-family: var(--font-display);
-  font-size: clamp(20px, 2vw, 24px) !important;
-  line-height: 1.45 !important;
+  font-size: clamp(20px, 2vw, 26px) !important;
+  line-height: 1.4 !important;
   color: var(--sage-900) !important;
   font-weight: 400;
   text-wrap: balance;
-}
-
-.creds {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-top: var(--space-6);
-  margin-bottom: var(--space-6);
-  padding: 22px 26px;
-  background: var(--cream-deep);
-  border-radius: var(--radius-md);
-  font-size: 14px;
-  line-height: 1.5;
-  border-left: 3px solid var(--sage-300);
-}
-.credLine {
-  display: block;
-  color: var(--ink);
-  font-weight: 500;
-}
-.credLine:first-child {
-  font-family: var(--font-display);
-  font-size: 17px;
-  font-weight: 500;
-  color: var(--sage-900);
-  letter-spacing: -0.01em;
 }
 
 .actions {
@@ -93,12 +96,109 @@
   gap: var(--space-4);
   flex-wrap: wrap;
   margin-top: var(--space-6);
-  justify-content: flex-start;
 }
 
-@media (max-width: 600px) {
-  .head { text-align: left; }
-  .title { margin-left: 0; }
+/* SIDEBAR — stat tower + creds */
+.sidebar {
+  position: sticky;
+  top: 110px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* STAT BLOCK — big number moment */
+.statBlock {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 28px 32px;
+  background: linear-gradient(165deg, var(--sage-700) 0%, var(--sage-900) 100%);
+  border-radius: var(--radius-lg);
+  color: var(--cream);
+  box-shadow: var(--shadow-md);
+}
+.statNum {
+  font-family: var(--font-display);
+  font-size: 96px;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 0.85;
+  color: var(--terracotta-300);
+}
+.statLabel {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+.statTop {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sage-200);
+  margin-bottom: 4px;
+}
+.statBottom {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--cream);
+  letter-spacing: -0.01em;
+}
+
+/* CREDENTIALS BLOCK */
+.creds {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 24px 28px;
+  border: 1px solid var(--border-soft);
+}
+.credLabel {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--terracotta-600);
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-soft);
+}
+.credList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.credItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 13px;
+  line-height: 1.45;
+}
+.credItem strong {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--sage-900);
+  letter-spacing: -0.01em;
+}
+.credItem span {
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+@media (max-width: 880px) {
+  .layout { grid-template-columns: 1fr; gap: var(--space-6); }
+  .sidebar { position: static; }
+  .statBlock { padding: 22px 26px; }
+  .statNum { font-size: 76px; }
   .actions { flex-direction: column; align-items: stretch; }
   .actions > * { width: 100%; justify-content: center; }
 }
