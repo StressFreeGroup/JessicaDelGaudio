@@ -2,11 +2,27 @@ import { Link } from 'react-router-dom';
 import { contact } from '../../config/booking.js';
 import s from './Footer.module.css';
 
+const forms = [
+  { label: 'Notice of Privacy Practices',     href: '/forms/Notice-of-Privacy-Practices.pdf' },
+  { label: 'Informed Consent for Treatment',  href: '/forms/Informed-Consent-for-Treatment.pdf' },
+  { label: 'Telehealth Consent (NY)',         href: '/forms/Telehealth-Consent.pdf' },
+  { label: 'Cancellation & Refund Policy',    href: '/forms/Cancellation-and-Refund-Policy.pdf' },
+  { label: 'Auto-Renewal Disclosure',         href: '/forms/Auto-Renewal-Disclosure.pdf' }
+];
+
+function DownloadIcon() {
+  return (
+    <svg viewBox="0 0 16 16" width="12" height="12" fill="none" aria-hidden="true">
+      <path d="M8 2v9M4 7l4 4 4-4M3 13.5h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 export default function Footer() {
   return (
     <footer className={s.footer}>
       <div className={s.inner}>
-        <div className={s.col}>
+        <div className={`${s.col} ${s.colWide}`}>
           <Link to="/" className={s.brand}>
             <span className={s.brandMark}>Jessica Del Gaudio, LMHC</span>
           </Link>
@@ -33,6 +49,20 @@ export default function Footer() {
             <li><a href={`mailto:${contact.personalEmail}`}>{contact.personalEmail}</a></li>
             <li><Link to="/contact">Send a message</Link></li>
             <li><Link to="/payment">Payment options</Link></li>
+          </ul>
+        </div>
+
+        <div className={s.col}>
+          <h4 className={s.label}>Forms &amp; Disclosures</h4>
+          <ul className={s.linksForms}>
+            {forms.map(f => (
+              <li key={f.href}>
+                <a href={f.href} target="_blank" rel="noopener noreferrer" download>
+                  <DownloadIcon />
+                  <span>{f.label}</span>
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
 

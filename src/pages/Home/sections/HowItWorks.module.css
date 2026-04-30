@@ -256,4 +256,35 @@
   .stepActive:hover { transform: translateY(-2px); }
   .num { font-size: 44px; }
   .stepIndicator { margin-bottom: 14px; }
+
+  /* MOBILE: every card always-expanded, full info + CTA always visible.
+     Click activation still works (toggles the dark-sage hero state) but
+     no functional content is hidden behind interaction. Hover doesn't fire
+     on touch, and we don't rely on it. */
+  .step .detailBox {
+    max-height: 280px;
+    opacity: 1;
+    margin-top: var(--space-4);
+  }
+  .step .detailText {
+    color: var(--ink-soft);
+    border-top-color: var(--border-soft);
+  }
+  .step .stepCta {
+    background: var(--sage-700);
+  }
+  .step .stepCta:hover,
+  .step .stepCta:active {
+    background: var(--sage-900);
+  }
+  /* When tapped/active on mobile, retain the dark-sage hero treatment but
+     keep all cards readable */
+  .stepActive .detailText { color: var(--sage-100); border-top-color: rgba(255,255,255,0.18); }
+  .stepActive .stepCta { background: var(--terracotta-500); }
+  .stepActive .stepCta:hover,
+  .stepActive .stepCta:active { background: var(--terracotta-700); }
+
+  /* Hide progress dots on mobile - all cards always show their content,
+     no need to navigate between active states */
+  .progress { display: none; }
 }

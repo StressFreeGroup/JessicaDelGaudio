@@ -50,8 +50,7 @@ export default function HowItWorks() {
             Three steps to <span className={s.titleAccent}>getting started.</span>
           </h2>
           <p className={s.lead}>
-            Click any step to learn more. The whole process from first call to first session
-            usually takes about a week.
+            The whole process from first call to first session usually takes about a week.
           </p>
         </header>
 
