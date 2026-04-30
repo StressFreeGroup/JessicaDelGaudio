@@ -165,22 +165,16 @@ export default function Schedule() {
           <span className={s.dividerLine} />
         </div>
 
-        {/* PATH B — Free consultation calendar (prominent CTA banner) */}
-        <div className={s.consultBanner}>
-          <div className={s.consultBannerLeft}>
-            <span className={s.consultBadge}>FREE</span>
-            <div>
-              <h3 className={s.consultTitle}>15-minute consultation</h3>
-              <p className={s.consultSubtitle}>
-                Not ready to commit? Book a brief no-obligation call &mdash; we&rsquo;ll talk
-                about what you&rsquo;re looking for and whether we&rsquo;re a good fit.
-              </p>
-            </div>
-          </div>
-          <div className={s.consultMeta}>
-            <span className={s.consultMetaTop}>No payment</span>
-            <span className={s.consultMetaBottom}>No commitment</span>
-          </div>
+        {/* PATH B — Free consultation calendar (clean typographic header, not a banner) */}
+        <div className={s.consultHead}>
+          <span className={s.consultHeadEyebrow}>Free 15-minute consultation</span>
+          <h3 className={s.consultHeadTitle}>
+            Or start with a brief no-obligation call.
+          </h3>
+          <p className={s.consultHeadSub}>
+            Pick a time below. No payment, no commitment &mdash; just a conversation about
+            what you&rsquo;re looking for and whether we&rsquo;re a good fit.
+          </p>
         </div>
 
         <div className={s.calendarWrap}>

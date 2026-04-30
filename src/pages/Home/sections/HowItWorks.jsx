@@ -15,9 +15,9 @@ const steps = [
   },
   {
     n: '02',
-    title: 'Pick a rhythm that fits your life',
-    body: 'Single session, monthly plan, or annual commitment \u2014 whichever matches the cadence you actually need. Everyone starts somewhere different.',
-    detail: 'Most clients land on the Weekly Plan because life happens in weeks. On the Spot is for one-off check-ins. The Annual Plan is the lowest per-session rate for committed long-term work.',
+    title: 'Pick a program that fits',
+    body: 'Single session, monthly plan, or annual commitment \u2014 whichever matches your situation. Most clients land on the Weekly Plan.',
+    detail: 'On the Spot is for one-off check-ins. The Weekly Plan ($399/mo) is the default for ongoing therapy. The Annual Plan locks in the lowest per-session rate for committed long-term work. All plans are private-pay through Stripe with FSA / HSA accepted.',
     ctaLabel: 'See plans & pricing',
     ctaHref: '#schedule',
     ctaIsExternal: false

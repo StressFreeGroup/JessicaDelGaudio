@@ -250,16 +250,14 @@
   box-shadow: 0 4px 10px rgba(165, 90, 64, 0.35);
 }
 
-/* PAYMENT FLOW EXPLAINER */
+/* PAYMENT FLOW EXPLAINER — no container, structured typography with HR dividers */
 .flowExplainer {
   position: relative;
   z-index: 1;
   max-width: 920px;
   margin: 0 auto;
-  background: var(--cream-deep);
-  border-radius: var(--radius-lg);
-  padding: clamp(24px, 3vw, 36px) clamp(28px, 4vw, 44px);
-  border-left: 4px solid var(--sage-700);
+  padding-top: var(--space-7);
+  border-top: 1px solid var(--border-soft);
 }
 .flowEyebrow {
   display: block;
@@ -269,37 +267,51 @@
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--terracotta-600);
-  margin-bottom: 12px;
+  text-align: center;
+  margin-bottom: var(--space-5);
 }
 .flowSteps {
   list-style: none;
-  margin: 0 0 14px;
+  margin: 0 0 var(--space-5);
   padding: 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-5);
+  gap: 0;
 }
 .flowSteps li {
   font-size: 14px;
   line-height: 1.55;
   color: var(--ink);
+  padding: 0 clamp(16px, 3vw, 32px);
+  border-right: 1px solid var(--border-soft);
+}
+.flowSteps li:last-child {
+  border-right: none;
+}
+.flowSteps li:first-child {
+  padding-left: 0;
 }
 .flowSteps strong {
-  display: inline-block;
+  display: block;
   font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 500;
-  color: var(--sage-700);
-  margin-right: 6px;
-  letter-spacing: -0.015em;
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--terracotta-500);
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+  line-height: 1;
 }
 .flowNote {
   margin: 0;
-  padding-top: 14px;
+  padding-top: var(--space-4);
   border-top: 1px solid var(--border-soft);
   font-size: 12px;
   line-height: 1.55;
   color: var(--ink-mute);
+  text-align: center;
+  max-width: 70ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* DIVIDER */
@@ -333,88 +345,43 @@
   margin: 0 auto;
 }
 
-/* FREE CONSULT BANNER — prominent callout above the calendar */
-.consultBanner {
+/* FREE CONSULT HEADER — clean typography, no banner, no gradient */
+.consultHead {
   position: relative;
   z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: clamp(16px, 3vw, 32px);
-  flex-wrap: wrap;
   max-width: 920px;
-  margin: 0 auto var(--space-5);
-  padding: clamp(20px, 3vw, 28px) clamp(24px, 4vw, 40px);
-  background: linear-gradient(135deg, var(--terracotta-200) 0%, var(--terracotta-300) 100%);
-  border-radius: var(--radius-lg);
-  border: 2px solid var(--terracotta-500);
+  margin: 0 auto var(--space-6);
+  text-align: center;
 }
-
-.consultBannerLeft {
-  display: flex;
-  align-items: center;
-  gap: clamp(14px, 2.5vw, 20px);
-  flex: 1;
-  min-width: 280px;
-}
-
-.consultBadge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 14px;
-  background: var(--sage-700);
-  color: var(--cream);
-  font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  border-radius: 8px;
-  flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(42, 61, 50, 0.25);
-}
-
-.consultTitle {
-  font-family: var(--font-display);
-  font-size: clamp(20px, 2.4vw, 28px);
-  font-weight: 500;
-  color: var(--sage-900);
-  letter-spacing: -0.015em;
-  line-height: 1.15;
-  margin: 0 0 4px;
-}
-
-.consultSubtitle {
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--ink);
-  margin: 0;
-  max-width: 50ch;
-}
-
-.consultMeta {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  text-align: right;
-  padding-left: var(--space-5);
-  border-left: 1px solid rgba(42, 61, 50, 0.25);
-}
-.consultMetaTop {
-  font-family: var(--font-display);
-  font-size: 18px;
-  font-weight: 500;
-  color: var(--sage-900);
-  letter-spacing: -0.01em;
-  line-height: 1.1;
-}
-.consultMetaBottom {
+.consultHeadEyebrow {
+  display: block;
   font-family: var(--font-body);
   font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  color: var(--sage-700);
-  margin-top: 4px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--terracotta-600);
+  margin-bottom: var(--space-3);
+}
+.consultHeadTitle {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--sage-900);
+  margin: 0;
+  text-wrap: balance;
+  max-width: 26ch;
+  margin-inline: auto;
+}
+.consultHeadSub {
+  margin-top: var(--space-3);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 56ch;
+  margin-inline: auto;
 }
 
 .fineprint {
@@ -444,28 +411,14 @@
     padding-top: 36px;
   }
   .feature:hover { transform: translateY(-2px); }
-  .flowSteps { grid-template-columns: 1fr; gap: var(--space-3); }
-
-  .consultBanner {
-    flex-direction: column;
-    align-items: flex-start;
+  .flowSteps { grid-template-columns: 1fr; gap: 0; }
+  .flowSteps li {
+    padding: var(--space-4) 0;
+    border-right: none;
+    border-bottom: 1px solid var(--border-soft);
   }
-  .consultMeta {
-    flex-direction: row;
-    align-items: center;
-    gap: 12px;
-    padding-left: 0;
-    border-left: none;
-    padding-top: 12px;
-    border-top: 1px solid rgba(42, 61, 50, 0.20);
-    width: 100%;
-    text-align: left;
-    justify-content: space-between;
-  }
-  .consultBannerLeft {
-    align-items: flex-start;
-  }
-  .consultBadge {
-    align-self: flex-start;
-  }
+  .flowSteps li:first-child { padding-top: 0; }
+  .flowSteps li:last-child { border-bottom: none; padding-bottom: 0; }
+  .flowSteps strong { font-size: 24px; margin-bottom: 4px; display: inline-block; margin-right: 12px; }
+  .flowSteps li { display: flex; align-items: baseline; gap: 12px; }
 }

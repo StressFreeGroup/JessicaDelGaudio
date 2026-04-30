@@ -4,47 +4,47 @@ const modalities = [
   {
     short: 'CBT',
     name: 'Cognitive Behavioral Therapy',
-    body: 'Identifying the thought patterns that drive distress and learning to interrupt and reshape them.'
+    body: 'A structured, present-focused approach examining the loop between thoughts, feelings, and behaviors. We identify the automatic thoughts driving distress, test them against evidence, and build practical skills you can use between sessions. Strong fit for anxiety, depression, OCD, and panic. Most clients see meaningful change in 12 to 20 sessions.'
   },
   {
     short: 'DBT',
     name: 'Dialectical Behavior Therapy',
-    body: 'Skills for emotion regulation, distress tolerance, interpersonal effectiveness, and mindfulness.'
+    body: 'Originally developed for clients with intense emotions, DBT teaches four core skill modules: mindfulness, distress tolerance, emotion regulation, and interpersonal effectiveness. We work through specific techniques like opposite-action and wise-mind that you can deploy when feelings run hot. Strong fit for emotional reactivity and relational patterns that damage what matters.'
   },
   {
     short: 'ACT',
     name: 'Acceptance & Commitment',
-    body: 'Making room for difficult feelings rather than fighting them, while taking action on what matters.'
+    body: 'Rather than fighting difficult thoughts and feelings, we learn to make space for them while taking committed action toward what matters most. ACT uses experiential exercises and metaphors to build psychological flexibility \u2014 holding uncomfortable internal experiences without letting them dictate your life. Pairs well with values-based work and chronic stress.'
   },
   {
     short: 'EFT',
     name: 'Emotionally-Focused Therapy',
-    body: 'Working with emotion as information \u2014 deepening connection with yourself and others.'
+    body: 'Treats emotion as core information rather than a problem to manage. We slow down to identify what feelings are signaling underneath the surface, then use that understanding to deepen your relationship with yourself and the people who matter. Strong evidence base for couples work and attachment-focused individual therapy.'
   },
   {
     short: 'Attachment',
     name: 'Attachment-Based',
-    body: 'Examining how early relational patterns show up in adult relationships and revising the templates.'
+    body: 'Examines how the relational templates you formed early in life are still shaping your adult relationships \u2014 with partners, family, friends, even with yourself. We trace the patterns, understand their roots, and revise the ones that no longer serve you. Particularly useful for chronic relationship difficulties, fear of intimacy, and unresolved family-of-origin issues.'
   },
   {
     short: 'Person-Centered',
     name: 'Client-Centered',
-    body: 'A foundation of unconditional positive regard and genuine listening. You set the agenda.'
+    body: 'Carl Rogers\u2019 foundational approach. The therapeutic relationship itself is the change agent \u2014 unconditional positive regard, accurate empathy, and genuine listening create the conditions for self-exploration. You set the agenda; I follow your lead. Often woven through other modalities as the underlying relational stance.'
   },
   {
     short: 'Existential',
     name: 'Existential Therapy',
-    body: 'Sitting with the bigger questions \u2014 meaning, purpose, mortality \u2014 and finding your own answers.'
+    body: 'Sits with the questions that don\u2019t have easy answers \u2014 meaning, purpose, mortality, freedom, isolation, identity. The work isn\u2019t about finding the right answer; it\u2019s about confronting the questions honestly and finding YOUR answer rather than borrowed ones. Useful at major life transitions, after loss, or when \u201cwhat am I doing with my life?\u201d becomes loud.'
   },
   {
     short: 'Mindfulness',
     name: 'Mindfulness-Based',
-    body: 'Practical mindfulness skills for staying present with what is, rather than past or future.'
+    body: 'Present-moment awareness as a core skill. We practice noticing thoughts, feelings, and bodily sensations without judgment, building the muscle to step out of automatic reactivity. Drawn from MBSR and MBCT lineages, with formal practices and applications to everyday moments. Strong fit for anxiety, rumination, and stress reduction.'
   },
   {
     short: 'MI',
     name: 'Motivational Interviewing',
-    body: 'A collaborative style that helps you find and strengthen your own motivation for change.'
+    body: 'A collaborative conversational style that helps you find and strengthen your OWN motivation for change \u2014 not motivation imposed from outside. We explore ambivalence honestly, evoke your reasons for change, and build self-efficacy. Originally developed for substance use treatment, now widely used wherever someone is stuck between wanting change and resisting it.'
   }
 ];
 
